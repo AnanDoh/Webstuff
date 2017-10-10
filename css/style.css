@@ -1,0 +1,96 @@
+@colorTitulo: black;
+@big:50px;
+@backcolor:#222;
+@black:white;
+@keyboard:#E4E4E4;
+@textcolor:#567D62;
+@colorboarder:#3E553F;
+@marginhover:#13859E;
+@margin:3px;
+
+body {
+  font-family: calibri;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+}
+
+#main-container {
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	background-color: #eee;
+	background-size: cover;
+  padding: 10px;
+}
+
+#game-title {
+  font-family: "Shadows Into Light";
+}
+
+#intentos {
+  font-size: 3em;
+  margin: 0px;
+}
+
+#intTxt {
+  color: red;
+}
+
+.titulo{
+  color: @colorTitulo;
+  font-size:@big;
+  text-align:center;
+}
+
+form{
+  text-align: center;
+  padding-top:400px;
+}
+
+.areaP{
+  background-color:@black;
+  max-width:100%;
+}
+
+button {
+ border: solid black 2px;
+ width: 40px;
+ height: 40px;
+ background: @keyboard;
+ color: @textcolor;
+ padding: 10px;
+ font-size: 18px;
+ border-color:@colorboarder;
+ border-radius: 5px;
+ border-style: solid;
+ position: relative;
+ box-sizing: border-box;
+ margin:@margin; 
+}
+
+button:hover {
+ background: rgba(0,0,0,0);
+ color: #3a7999;
+ border-color: inset 0 0 0 3px #3a7999;
+}
+
+div.keyboard{
+  position: inherit;
+  bottom: 100px;
+  margin-top: 70px;
+  margin: auto;
+  max-width:450px;
+}
+
+.wrong{
+  //margin-top: -50px;
+  background-color:red;
+  color:white;
+}
+
+.good{
+    background-color:green;
+    color:white;
+}
