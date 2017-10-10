@@ -2,22 +2,22 @@ $(document).ready(function() {
     $("#start").click(function() {
         location.reload();
     });
-    var min = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var letter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     var letterid = ["#A", "#B", "#C", "#D", "#E", "#F", "#G", "#H", "#I", "#J", "#K", "#L", "#M", "#N", "#O", "#P", "#Q", "#R", "#S", "#T", "#U", "#V", "#W", "#X", "#Y", "#Z"];
-    var words = ["HELLO", "GOODBYE", "DESTINY", "JOLLY", "PIZZAZZ", "BUZZWIG", "ACTING", "ADJURE", "ADJUST", "SEIZURE"]
+    var words = ["POOP", "MCSCOOP", "BUTTS", "ALPHAKENNYBODY", "REEEEEEEEEEE", "I", "GAS", "BYPASS", "IDUBBZ", "RICEGUM", "HEHEXD"];
     var buttons = [];
     var index = [];
     var lino = [];
-    var misses = 0;
+    var count = 0;
     var hits = 0;
-    var my_div = document.getElementById('my_div');
     var word = words[Math.floor(Math.random() * words.length)];
   
     $("h2").hide();
+    $("#7").hide();
 
     if ($(".creBut").empty) {
-        for (var i = 0; i < min.length; i++) {
-            buttons.push('<button id="'+ min[i] + '">' + min[i] + '</button>');
+        for (var i = 0; i < letter.length; i++) {
+            buttons.push('<button id="'+ letter[i] + '">' + letter[i] + '</button>');
         }
     $(".creBut").html(buttons.join(""));
     }
@@ -27,42 +27,35 @@ $(document).ready(function() {
         }
     $(".lines").html(lino.join(""));
     }
-    
-
-    //when button is pressed. it is that button's text 
-    //itterate through the entire work and ccheck for matches
-    //push letter to index
-    //increment hits
-     $("" +  letterid.toString()).click(function() {
-        var fired_button = $(this).text();
+    $("" +  letterid.toString()).click(function() {
+        var which = $(this).text();
         for (var i = 0; i < word.length; i++) {
             var res = word.charAt(i);
-            if (fired_button == res) {
+            if (which == res) {
                 index.push(i);
                 hits++;
             }
         }
         for (var j = 0; j <= index.length; j++) {
-            $("#letter" + (index[j] + 1)).text(fired_button);
+            $("#letter" + (index[j] + 1)).text(which);
             //console.log(index[j]);
         }
         if (index.length == 0) {
-            misses++;
-            if (misses >= 7){
+            count++;
+            if (count >= 7){
                 console.log("you lost");
-                $("#lose_message").html('You lost. The word was <b>' + word + '</b>. Select New Game to play again.');
+                $("#lost").html('You suck at video games <b>' + word + '</b>');
             }
-            console.log(misses);
-            var fixer = misses + 1;
-            $("#"+ fixer).show();
+            console.log(count);
+            $("#"+ count).show();
         }
         if (hits == word.length){
-            $("#lose_message").html('<b> You WON!. Select New Game to play again. </b>');
-            $("#lose_message").show();
+            $("#lost").html('<b> Winner winner chicken dinner.</b>');
+            $("#lost").show();
         }
         $(this).css('visibility', 'hidden')
         index = [];
-        $("#misscount").text(misses);
+        $("#count").text(count);
     });
 
      console.log(word.length);
